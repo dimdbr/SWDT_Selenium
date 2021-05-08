@@ -7,27 +7,27 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import webpages.EpamMainPage;
+
 public class Test1 {
-    String path = "C:\\Users\\dimon\\Desktop\\ТРПЗ\\SWDT_Selenium\\chromedriver.exe";
+    String path = "./driver/chromedriver.exe";
     WebDriver driver;
     EpamMainPage objPage;
+
     @Before
-    public void setup()
-    {
-        System.setProperty("webdriver.chrome.driver",path);
+    public void setup() {
+        System.setProperty("webdriver.chrome.driver", path);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.epam.com");
 
     }
-    @Test
-    public void clickTest()
-    {
-      objPage=new EpamMainPage(driver);
-      objPage.clickServices();
-      Assert.assertTrue(driver.getCurrentUrl().equals("https://www.epam.com/services"));
-    }
 
+    @Test
+    public void clickTest() {
+        objPage = new EpamMainPage(driver);
+        objPage.clickServices();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.epam.com/services"));
+    }
 
 
 }
