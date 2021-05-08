@@ -23,8 +23,9 @@ public class Test3 {
     }
 
     @Test
-    public void sliderTest() {
+    public void sliderTest() throws InterruptedException {
         objPage = new EpamMainPage(driver);
+        Thread.sleep(5000);
         boolean result = objPage.clickSlider();
         Assert.assertEquals(true, result);
     }
