@@ -67,7 +67,6 @@ public class ContactUsFormPage {
     public ContactUsFormPage(WebDriver driver) {
         this.driver = driver;
         this.driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-
 //        wait for loading page
         this.driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
     }

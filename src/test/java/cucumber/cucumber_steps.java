@@ -11,15 +11,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webpages.ContactUsFormPage;
 import webpages.EpamMainPage;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class cucumber_steps {
     String path = "./driver/chromedriver.exe";
@@ -67,12 +64,12 @@ public class cucumber_steps {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,100)");
         objPage.clickSlider();
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+//        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
     }
 
     @Then("^slider content is clickable$")
     public void isSliderClickable() {
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+//        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         objPage = new EpamMainPage(driver);
         boolean result = objPage.isSliderClickable();
         Assert.assertEquals(true, result);
