@@ -61,7 +61,7 @@ public class ContactUsFormPage {
         Actions actionProvider = new Actions(driver);
         actionProvider.moveToElement(submitBtn).build().perform();
         submitBtn.click();
-//        return driver.findElement(userNameL).getCssValue("color");
+
     }
 
     public ContactUsFormPage(WebDriver driver) {

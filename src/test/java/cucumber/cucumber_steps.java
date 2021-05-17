@@ -64,12 +64,10 @@ public class cucumber_steps {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,100)");
         objPage.clickSlider();
-//        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
     }
 
     @Then("^slider content is clickable$")
     public void isSliderClickable() {
-//        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         objPage = new EpamMainPage(driver);
         boolean result = objPage.isSliderClickable();
         Assert.assertEquals(true, result);
