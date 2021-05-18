@@ -21,6 +21,7 @@ public class ContactUsFormPage {
     By userPhoneL = By.name("user_phone");
     By checkBoxes = By.className("checkbox__label");
     By buttons = By.className("button-ui");
+    By selector = By.className("select2-selection__arrow");
 
 
     public void setUserName(String userName) {
@@ -47,6 +48,14 @@ public class ContactUsFormPage {
         this.setUserPhone(phone);
         this.setUserEmail(email);
     }
+    public WebElement clickOnSelection()
+    {
+        List<WebElement>  selectors = driver.findElements(selector);
+        WebElement needed = selectors.get(5);
+        needed.click();
+        return needed;
+    }
+
 
     public void clickCheckbox() {
         WebElement cb = driver.findElements(checkBoxes).get(0);
@@ -62,6 +71,10 @@ public class ContactUsFormPage {
         actionProvider.moveToElement(submitBtn).build().perform();
         submitBtn.click();
 
+    }
+    public String getBorderColor()
+    {
+        return driver.findElement(userNameL).getCssValue("color");
     }
 
     public ContactUsFormPage(WebDriver driver) {

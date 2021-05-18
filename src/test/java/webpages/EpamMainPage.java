@@ -27,6 +27,7 @@ public class EpamMainPage {
     By searchBtn = By.className("header-search__button");
     By searchBar = By.id("new_form_search");
     By findBtn = By.className("header-search__submit");
+    By responseMessage = By.className("search-results__exception-message");
 
 
     public void clickServices() {
@@ -106,5 +107,9 @@ public class EpamMainPage {
 
     public void clickToFind() {
         driver.findElement(findBtn).click();
+    }
+    public String getResponse()
+    {
+        return driver.findElements(responseMessage).get(0).getText();
     }
 }

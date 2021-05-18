@@ -115,9 +115,7 @@ public class cucumber_steps {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,700)");
         contactUsFormPage.clickCheckbox();
-        List<WebElement> selector = driver.findElements(By.className("select2-selection__arrow"));
-        WebElement needed = selector.get(5);
-        needed.click();
+        WebElement needed = contactUsFormPage.clickOnSelection();
         Actions actionProvider = new Actions(driver);
         actionProvider.moveToElement(needed).moveByOffset(0, 40).click().build().perform();
     }
@@ -139,7 +137,7 @@ public class cucumber_steps {
 
     @Then("^field borders become red and appear hints to complete required fields$")
     public void checkBorderColor() {
-        String result = driver.findElement(By.name("user_first_name")).getCssValue("color");
+        String result = contactUsFormPage.getBorderColor();
         Assert.assertEquals(result, "rgba(241, 92, 67, 1)");
     }
 
@@ -155,7 +153,7 @@ public class cucumber_steps {
     @Then("^expect line with text \"Sorry, but your search returned no results. Please tray another query\"$")
     public void checkResponse() {
         String expect = "Sorry, but your search returned no results. Please try another query.";
-        String result = driver.findElements(By.className("search-results__exception-message")).get(0).getText();
+        String result = objPage.getResponse();
         Assert.assertEquals(result, expect);
     }
 
